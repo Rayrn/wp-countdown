@@ -10,8 +10,8 @@ window.countdown.UI = (function (jQuery) {
             var countdownDateParts = element.data('date').split('-');
             var countdownDate = new Date(
                 parseInt(countdownDateParts[0]),
-                parseInt(countdownDateParts[1]),
-                parseInt(countdownDateParts[2]))
+                parseInt(countdownDateParts[1]) - 1,
+                parseInt(countdownDateParts[2]) - 1)
                 .getTime();
 
             // Update the count down every 1 second
@@ -59,16 +59,16 @@ window.countdown.UI = (function (jQuery) {
     });
 
     function initCountdown() {
-        $('.wp-countdown').each(
+        jQuery('.wp-countdown').each(
             function (index, element) {
                 var instance = new Instance();
-                instance.init($(element));
+                instance.init(jQuery(element));
             });
     }
 
     return {
         init: initCountdown
     };
-})($);
+})(jQuery);
 
 window.countdown.UI.init();

@@ -1,0 +1,13 @@
+.wp-countdown {
+    display: inline-block;
+    border-width: 1px;
+    border-color: chartreuse;
+    padding: 10 5 10 5;
+}
+  
+.wp-countdown .active {
+    font-weight: bolder;    
+}
+  
+.wp-countdown .inactive {
+}
