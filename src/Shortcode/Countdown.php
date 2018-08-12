@@ -74,6 +74,6 @@ class Countdown
      */
     private function getDate(): string
     {
-        return "{$this->date} {$this->hour}:$this->min";
+        return "{$this->date}T{$this->hour}:$this->min";
     }
 }
