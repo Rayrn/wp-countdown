@@ -1,6 +1,6 @@
 <?php
 
-namespace Rayrn\WP\Countdown\Shortcode
+namespace Rayrn\WP\Countdown\Shortcode;
 
 class Countdown
 {

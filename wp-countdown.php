@@ -12,10 +12,9 @@ if (!defined('ABSPATH')) {
 }
 
 define('WP_COUNTDOWN_DIR', \plugin_dir_path(__FILE__));
-define('WP_COUNTDOWN_PLUGIN_ID', 'im-riddle');
+define('WP_COUNTDOWN_FOLDER', basename(__DIR__, 1));
+define('WP_COUNTDOWN_PLUGIN_ID', 'wp-countdown');
 
-// If you're not using Composer for your whole project, but only the plugin,
-// you can include the following to autoload the required classes.
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
