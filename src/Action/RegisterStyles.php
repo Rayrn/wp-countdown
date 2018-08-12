@@ -13,7 +13,7 @@ class RegisterStyles extends Action
     {
         wp_enqueue_style(
             WP_COUNTDOWN_PLUGIN_ID . '-css',
-            plugins_url() . WP_COUNTDOWN_DIR . '/assets/css/' . WP_COUNTDOWN_PLUGIN_ID . '.css'
+            plugins_url() . '/' . WP_COUNTDOWN_FOLDER . '/assets/css/' . WP_COUNTDOWN_PLUGIN_ID . '.css'
         );
     }
 }
