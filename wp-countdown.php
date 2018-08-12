@@ -4,7 +4,7 @@
  * Plugin Name: WP Countdown
  * Description: Wordpress countdown element
  * Version: 1
- * Author: Jack Hansard
+ * Author: Jack Hansard, Adrian Lewis
  * License: GPL v2
  */
 if (!defined('ABSPATH')) {

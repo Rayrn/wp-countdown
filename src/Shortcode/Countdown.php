@@ -29,8 +29,8 @@ class Countdown
     public function __construct(string $date, int $hour, int $min)
     {
         $this->date = date('Y-m-d', strtotime($date));
-        $this->hour = $this->between($hour, 0, 24);
-        $this->min = $this->between($min, 0, 60);
+        $this->hour = $this->between($hour, 0, 23);
+        $this->min = $this->between($min, 0, 59);
     }
 
     /**
@@ -74,6 +74,6 @@ class Countdown
      */
     private function getDate(): string
     {
-        return "{$this->date}T{$this->hour}:$this->min";
+        return "{$this->date}T{$this->hour}:{$this->min}";
     }
 }

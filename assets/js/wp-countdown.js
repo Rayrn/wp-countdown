@@ -1,17 +1,18 @@
 window.countdown = window.countdown || {};
 
 window.countdown.UI = (function (jQuery) {
-    var countdownContainer;
-    var targetDate;
-
     Instance = (function () {
         function initContainer(element) {
             // Extract countdown date from data attribute
-            var countdownDateParts = element.data('date').split('-');
+            var dateTimeParts = element.data('date').split('T');
+            var dateParts = dateTimeParts[0].split('-');
+            var timeParts = dateTimeParts[1].split(':');
             var countdownDate = new Date(
-                parseInt(countdownDateParts[0]),
-                parseInt(countdownDateParts[1]) - 1,
-                parseInt(countdownDateParts[2]) - 1)
+                parseInt(dateParts[0]),
+                parseInt(dateParts[1]) - 1,
+                parseInt(dateParts[2]) - 1,
+                parseInt(timeParts[0]),
+                parseInt(timeParts[1]))
                 .getTime();
 
             // Update the count down every 1 second
