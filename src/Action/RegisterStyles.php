@@ -2,10 +2,10 @@
 
 namespace Rayrn\WP\Countdown\Action;
 
-class RegisterStyles extends ActionAbstract
+class RegisterStyles extends Action
 {
     /**
-     * Register the javascript
+     * Register the css
      *
      * @param array ...$args
      */

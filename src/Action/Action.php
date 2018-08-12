@@ -2,7 +2,7 @@
 
 namespace Rayrn\WP\Countdown\Action;
 
-abstract class ActionAbstract
+abstract class Action
 {
     /**
      * @var int Priority

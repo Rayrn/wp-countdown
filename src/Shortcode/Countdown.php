@@ -41,7 +41,7 @@ class Countdown
     public function __toString()
     {
         return sprintf(
-            '<div class="wp-countdown" data-attribute-date="%s" />',
+            '<div class="wp-countdown" data-date="%s"/>',
             $this->getDate()
         );
     }
@@ -74,6 +74,6 @@ class Countdown
      */
     private function getDate(): string
     {
-        return "{$this->date} {$this->hour}:$this->min";
+        return "{$this->date}T{$this->hour}:$this->min";
     }
 }

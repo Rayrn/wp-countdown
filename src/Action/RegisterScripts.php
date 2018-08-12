@@ -2,7 +2,7 @@
 
 namespace Rayrn\WP\Countdown\Action;
 
-class RegisterScripts extends ActionAbstract
+class RegisterScripts extends Action
 {
     /**
      * Register the javascript
