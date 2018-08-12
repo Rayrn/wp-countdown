@@ -6,6 +6,7 @@
 }
   
 .wp-countdown .active {
+    margin-left: 0.5rem;
     font-weight: bolder;    
 }
   
