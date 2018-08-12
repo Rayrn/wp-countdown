@@ -2,13 +2,14 @@
 
 namespace Rayrn\WP\Countdown\Action;
 
-use League\Container\ContainerAwareTrait;
-use League\Container\ContainerAwareInterface;
-use Rayrn\WP\Countdown\Shortcode\Countdown;
+use Rayrn\WP\Countdown\Shortcode\CountdownFactory;
 
-class RegisterShortcode extends Action implements ContainerAwareInterface
+class RegisterShortcode extends Action
 {
-    use ContainerAwareTrait;
+    public function __construct(CountdownFactory $countdownfactory)
+    {
+        $this->countdownfactory = $countdownfactory;
+    }
 
     /**
      * Add the shortcode
@@ -22,7 +23,7 @@ class RegisterShortcode extends Action implements ContainerAwareInterface
             $hour = $options['hour'] ?? 0;
             $min = $options['min'] ?? 0;
 
-            return $this->getContainer()->get(Countdown::class, [$date, $hour, $min]);
+            return $this->countdownfactory->create($date, $hour, $min);
         });
     }
 }

@@ -15,7 +15,6 @@ class CountdownPlugin extends Container
         parent::__construct();
 
         $this->delegate(new ReflectionContainer());
-        $this->boot();
     }
 
     /**
@@ -28,23 +27,6 @@ class CountdownPlugin extends Container
         $this->addAction('init', $this->get(Action\RegisterShortcode::class));
 
         $this->addAction('register_shortcode_ui', $this->get(Action\RegisterModalInterface::class));
-    }
-
-    /**
-     * Runs on plugin init
-     */
-    private function boot()
-    {
-        $this->add(Shortcode\Countdown::class, function ($date, $hour = 0, $min = 0) {
-            return new Shortcode\Countdown($date, $hour, $min);
-        });
-
-        $this->add(Action\RegisterShortcode::class, function () {
-            $registerShortcode = new Action\RegisterShortcode($this);
-            $registerShortcode->setContainer($this);
-
-            return $registerShortcode;
-        });
     }
 
     /**
