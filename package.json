@@ -1,0 +1,24 @@
+{
+  "name": "wp-countdown",
+  "version": "1.0.0",
+  "description": "WordPress countdown plugin",
+  "scripts": {
+    "build:dev": "webpack -d --progress --config=webpack.dev.js --mode development",
+    "build:prod": "webpack -p --progress --config=webpack.prod.js --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rayrn/wp-countdown.git"
+  },
+  "keywords": [
+    "WordPress",
+    "countdown",
+    "plugin"
+  ],
+  "author": "Jack Hansard, Adrian Lewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rayrn/wp-countdown/issues"
+  },
+  "homepage": "https://github.com/Rayrn/wp-countdown#readme"
+}
