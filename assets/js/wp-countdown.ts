@@ -13,13 +13,13 @@
     </div>
 */
 
-@import '../css/wp-countdown.css';
+import '../css/wp-countdown.css';
 
 class Countdown {
     constructor(doc: Document) {
         const elements = doc.querySelectorAll('.wp-countdown');
         elements.forEach(
-            (element) => {
+            (element: Element) => {
                 this.initContainer(element as HTMLDivElement);
             });
     }
@@ -51,7 +51,7 @@ class Countdown {
 
             // Display the result
             element.innerHTML =
-                `<span class=\'prefix\'>${prefixString}</span><span class=\'time\'>${timeString}</span`;
+                `<span class=\'prefix\'>${prefixString}</span><span class=\'time odometer\'>${timeString}</span`;
         }, 1000);
     }
 

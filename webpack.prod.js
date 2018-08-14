@@ -34,17 +34,6 @@ module.exports = merge(common, {
             }),
             new OptimizeCssAssetsPlugin({})
         ],
-        runtimeChunk: true,
-        splitChunks: {
-            cacheGroups: {
-                default: false,
-                commons: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor_app',
-                    chunks: 'all',
-                    minChunks: 2
-                }
-            }
-        }
+        runtimeChunk: true
     }
 });
