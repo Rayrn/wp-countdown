@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "module": "es2015",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "typeRoots": [
+      "../node_modules/@types/",
+      "./@types/"
+    ]
+  }
+}
+  

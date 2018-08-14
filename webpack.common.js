@@ -3,59 +3,40 @@ const path = require('path');
 
 // Variables
 const isProduction = process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === 'production';
-const sourcePath = path.join(__dirname, './src');
+const sourcePath = path.join(__dirname, './assets');
 const outPath = path.join(__dirname, './dist');
 
 // Plugins
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     context: sourcePath,
     entry: {
-        app: ['./app/app.tsx', 'webpack-hot-middleware/client'],
-        vendor: ['react', 'react-dom']
+        js: ['./js/wp-countdown.ts','odometer']
     },
     output: {
         path: outPath,
-        filename: 'bundle.js',
-        chunkFilename: '[chunkhash].js',
+        filename: 'js/wp-countdown.js',
         publicPath: '/'
     },
     target: 'web',
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.ts', '.js'],
         mainFields: ['module', 'browser', 'main'],
         alias: {
-            app: path.resolve(__dirname, './src/app')
+            js: path.resolve(__dirname, './assets/js')
         }
-    },
-    devServer: {
-        contentBase: sourcePath,
-        hot: true,
-        inline: true,
-        historyApiFallback: {
-            disableDotRule: true
-        },
-        stats: 'minimal',
-        clientLogLevel: 'warning'
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new ForkTsCheckerWebpackPlugin({
-            tsconfig: path.resolve(__dirname, './src/tsconfig.json'),
-            tslint: path.resolve(__dirname, './src/tslint.json')
+            tsconfig: path.resolve(__dirname, './assets/tsconfig.json'),
+            tslint: path.resolve(__dirname, './assets/tslint.json')
         }),
-        new HtmlWebpackPlugin({
-            title: 'Zen Aero Site [Web]',
-            template: path.resolve(__dirname, './src/assets/index.html')
-        }),
-        new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[contenthash].css',
-            disable: !isProduction
+            filename: 'css/wp-countdown.css'
         })
     ],
     node: {
@@ -65,34 +46,42 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: [
-                    !isProduction && {
-                        loader: 'babel-loader',
-                        options: { plugins: ['react-hot-loader/babel'] }
-                    },
-                    {
-                        loader: 'ts-loader',
-                        options: {
-                            configFile: path.resolve(__dirname, './src/tsconfig.json'),
-                            transpileOnly: true,
-                            experimentalWatchApi: true
-                        }
-                    }
-                ].filter(Boolean),
+                test: /\.ts$/,
+                loader: 'ts-loader',
+                options: {
+                    configFile: path.resolve(__dirname, './assets/tsconfig.json'),
+                    transpileOnly: true,
+                    experimentalWatchApi: true
+                },
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
+                test: /\.css$/,
                 use: [
-                    isProduction ? MiniCssExtractPlugin : 'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: 'css-loader',
+                        query: {
+                            modules: false,
+                            sourceMap: false
+                        }
+                    }
+                ],
+            },
+            {
+                test: /\.(sc|sa)ss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
                     {
                         loader: 'css-loader',
                         query: {
                             modules: true,
                             sourceMap: !isProduction,
-                            importLoaders: 1,
-                            localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]'
+                            importLoaders: 1
                         }
                     },
                     {

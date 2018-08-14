@@ -1,0 +1,48 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-clean-code"
+  ],
+  "rules": {
+    // override tslint rules here
+    "adjacent-overload-signatures": true,
+    "array-type": [ true, "array-simple" ],
+    "arrow-parens": true,
+    "await-promise": true,
+    "ban-comma-operator": true,
+    "curly": true,
+    "no-consecutive-blank-lines": true,
+    "no-floating-promises": true,
+    "no-string-throw": true,
+    "no-submodule-imports": false,
+    "no-trailing-whitespace": false,
+    "no-var-requires": false,
+    "one-line": false,
+    "ordered-imports": false,
+    "prefer-const": true,
+    "promise-function-async": true,
+    "quotemark": [ true, "single" ],
+    "triple-equals": true,
+    "trailing-comma": false,
+
+    // override tslint-react rules here
+    "jsx-no-bind": true,
+    "jsx-no-lambda": true,
+    "jsx-no-multiline-js": false,
+    "jsx-no-string-ref": true,
+    "jsx-self-close": true,
+    "jsx-space-before-trailing-slash": true,
+    "jsx-wrap-multiline": true,
+
+    // override tslint-clean-code rules here
+    "try-catch-first": true,
+    "max-func-args": 5,
+    "newspaper-order": true,
+    "no-flag-args": true,
+    "no-for-each-push": true,
+    "no-feature-envy": false,
+    "no-map-without-usage": true,
+    "prefer-dry-conditionals": true
+  }
+}
