@@ -29,24 +29,6 @@ module.exports = {
             js: path.resolve(__dirname, './assets/js')
         }
     },
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.css$/,
-            chunks: 'all',
-            enforce: true
-          },
-          scripts: {
-            name: 'scripts',
-            test: /\.js$/,
-            chunks: 'all',
-            enforce: true
-          }
-        }
-      }
-    },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new ForkTsCheckerWebpackPlugin({

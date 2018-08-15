@@ -45,7 +45,7 @@ class Countdown {
                 timeString = this.getTimeStringFromDistance(expiryDate - now);
             }
             else {
-                prefixString = element.dataset.expiryText;
+                prefixString = element.dataset.expiredText;
                 clearInterval(timer);
             }
 
