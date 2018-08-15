@@ -21,18 +21,48 @@ class RegisterModalInterface extends Action
                 ]),
                 'attrs' => [
                     [
-                        'label' => __('Date', WP_COUNTDOWN_PLUGIN_ID),
-                        'attr'  => 'date',
+                        'label' => __('Pending Due Text', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'pending-due-text',
+                        'type'  => 'text',
+                    ],
+                    [
+                        'label' => __('Pending Expiry Text', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'pending-expiry-text',
+                        'type'  => 'text',
+                    ],
+                    [
+                        'label' => __('Expired Text', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'expired-text',
+                        'type'  => 'text',
+                    ],
+                    [
+                        'label' => __('Due Date', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'due-date',
                         'type'  => 'date',
                     ],
                     [
-                        'label' => __('Hour', WP_COUNTDOWN_PLUGIN_ID),
-                        'attr'  => 'hour',
+                        'label' => __('Due Hour', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'due-hour',
                         'type'  => 'number',
                     ],
                     [
-                        'label' => __('Min', WP_COUNTDOWN_PLUGIN_ID),
-                        'attr'  => 'min',
+                        'label' => __('Due Min', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'due-min',
+                        'type'  => 'number',
+                    ],
+                    [
+                        'label' => __('Expiry Date', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'expiry-date',
+                        'type'  => 'date',
+                    ],
+                    [
+                        'label' => __('Expiry Hour', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'expiry-hour',
+                        'type'  => 'number',
+                    ],
+                    [
+                        'label' => __('Expiry Min', WP_COUNTDOWN_PLUGIN_ID),
+                        'attr'  => 'expiry-min',
                         'type'  => 'number',
                     ]
                 ],
