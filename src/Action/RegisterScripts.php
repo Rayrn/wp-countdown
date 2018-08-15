@@ -13,8 +13,7 @@ class RegisterScripts extends Action
     {
         wp_enqueue_script(
             WP_COUNTDOWN_PLUGIN_ID . '-javascript',
-            plugins_url() . '/' . WP_COUNTDOWN_FOLDER . '/assets/js/' . WP_COUNTDOWN_PLUGIN_ID . '.js',
-            ['jquery']
+            plugins_url() . '/' . WP_COUNTDOWN_FOLDER . '/assets/js/' . WP_COUNTDOWN_PLUGIN_ID . '.js'
         );
     }
 }
