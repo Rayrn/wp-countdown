@@ -19,6 +19,7 @@
     "no-trailing-whitespace": false,
     "no-var-requires": false,
     "one-line": false,
+    "object-literal-sort-keys": false,
     "ordered-imports": false,
     "prefer-const": true,
     "promise-function-async": true,
@@ -37,7 +38,7 @@
 
     // override tslint-clean-code rules here
     "try-catch-first": true,
-    "max-func-args": 5,
+    "max-func-args": 7,
     "newspaper-order": true,
     "no-flag-args": true,
     "no-for-each-push": true,
