@@ -14,7 +14,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     context: sourcePath,
     entry: {
-        js: ['./js/wp-countdown.ts','odometer']
+        js: ['./js/wp-countdown.ts']
     },
     output: {
         path: outPath,
