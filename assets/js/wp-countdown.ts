@@ -11,11 +11,28 @@
          data-due-date='2018-08-25T06:00'
          data-expiry-date='2018-08-26T21:00'>
       <span class='wp-countdown-prefix-label'></span>
-      <span class='wp-countdown-countdown odometer'></div>
+      <div class='wp-countdown-countdown'>
+        <div class='wp-countdown-days'>
+          <span class="odometer countdown-time-days"></span>
+          <span class="countdown-time-days-label">d</span>
+        </div>
+        <div class='wp-countdown-hours'>
+          <span class="odometer countdown-time-hours leading-zero"></span>
+          <span class="countdown-time-hours-label">h</span>
+        </div>
+        <div class='wp-countdown-minutes'>
+          <span class="odometer countdown-time-minutes leading-zero"></span>
+          <span class="countdown-time-minutes-label">m</span>
+        </div>
+        <div class='wp-countdown-seconds'>
+          <span class="odometer countdown-time-seconds leading-zero"></span>
+          <span class="countdown-time-seconds-label">s</span>
+        </div>
+      </div>
     </div>
 */
 
-import {Odometer} from 'odometer';
+const Odometer = require('odometer');
 import '../css/wp-countdown.css';
 
 // window.odometerOptions = { auto: false };
@@ -105,39 +122,7 @@ class Countdown {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        let timeString = '';
         if (days > 0) {
-            timeString += `${days}`;
-        }
-
-        if (days > 0 || hours > 0) {
-            let paddedValue = hours.toString();
-            paddedValue = paddedValue.length === 1 ? '0' + paddedValue : paddedValue;
-            timeString += `${paddedValue}`;
-        }
-
-        if (days > 0 || hours > 0 || minutes > 0) {
-            let paddedValue = minutes.toString();
-            paddedValue = paddedValue.length === 1 ? '0' + paddedValue : paddedValue;
-            timeString += `${paddedValue}`;
-        }
-
-        if (days > 0 || hours > 0 || minutes > 0 || seconds > 0) {
-            let paddedValue = seconds.toString();
-            paddedValue = paddedValue.length === 1 ? '0' + paddedValue : paddedValue;
-            timeString += `${paddedValue}`;
-        }
-
-        const labelElement = element.getElementsByClassName('wp-countdown-countdown')[0] as HTMLSpanElement;
-        if (timeString !== '') {
-            labelElement.innerText = timeString;
-            labelElement.style.display = 'inline-block';
-        }
-        else {
-            labelElement.style.display = 'none';
-        }
-
-        /*if (days > 0) {
             this.updateTimeElementWhenVisible({
                 element,
                 value: days,
@@ -183,16 +168,24 @@ class Countdown {
         }
         else {
             this.updateTimeElementWhenNotVisible(element, 'wp-countdown-seconds');
-        }*/
+        }
     }
 
-    /*
     private updateTimeElementWhenVisible(
         options: IUpdateElementOptions): void {
         const container = options.element.getElementsByClassName(options.containerClass)[0] as HTMLDivElement;
         const labelElement = container.getElementsByClassName(options.labelClass)[0] as HTMLSpanElement;
-        labelElement.innerText = options.value.toString();
-        container.style.display = 'inline';
+
+        let valueText = options.value.toString();
+        if (labelElement.className.indexOf('leading-zero') !== -1) {
+            if (valueText.length === 1) {
+                valueText = '0' + valueText;
+            }
+            valueText = '1' + valueText;
+        }
+
+        labelElement.innerText = valueText;
+        container.style.display = 'inline-block';
     }
 
     private updateTimeElementWhenNotVisible(
@@ -202,7 +195,6 @@ class Countdown {
         const container = element.getElementsByClassName(containerClass)[0] as HTMLDivElement;
         container.style.display = 'none';
     }
-    */
 }
 
 ((doc: Document) => {
