@@ -4,7 +4,10 @@
   "description": "WordPress countdown plugin",
   "scripts": {
     "build:dev": "webpack -d --progress --config=webpack.dev.js --mode development",
-    "build:prod": "webpack -p --progress --config=webpack.prod.js --mode production"
+    "build:prod": "webpack -p --progress --config=webpack.prod.js --mode production",
+    "zip": "bestzip wp-countdown.zip assets/* dist/* vendor/* wp-countdown.php",
+    "zip:dev": "yarn run build:dev && yarn run zip",
+    "zip:prod": "yarn run build:prod && yarn run zip"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
   "dependencies": {
     "@types/node": "10.5.5",
     "@types/webpack-env": "^1.13.6",
+    "bestzip": "^1.1.4",
     "clean-webpack-plugin": "0.1.19",
     "copy-webpack-plugin": "4.5.2",
     "css-loader": "1.0.0",
@@ -46,10 +50,10 @@
     "sass-loader": "^7.1.0",
     "style-loader": "0.21.0",
     "svg-url-loader": "2.3.2",
+    "ts-loader": "4.4.2",
     "tslint": "5.11.0",
     "tslint-clean-code": "0.2.7",
     "tslint-react": "3.6.0",
-    "ts-loader": "4.4.2",
     "typescript": "3.0.1",
     "uglifyjs-webpack-plugin": "1.2.7",
     "url-loader": "1.0.1",
