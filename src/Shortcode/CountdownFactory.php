@@ -4,8 +4,26 @@ namespace Rayrn\WP\Countdown\Shortcode;
 
 class CountdownFactory
 {
-    public function create($date, $hour, $min): Countdown
+    public function create(
+        string $pendingDueText,
+        string $pendingExpiryText,
+        string $expiredText,
+        string $dueDate,
+        int $dueHour,
+        int $dueMin,
+        string $expiryDate,
+        int $expiryHour,
+        int $expiryMin): Countdown
     {
-        return new Countdown($date, $hour, $min);
+        return new Countdown(
+            $pendingDueText,
+            $pendingExpiryText,
+            $expiredText,
+            $dueDate,
+            $dueHour,
+            $dueMin,
+            $expiryDate,
+            $expiryHour,
+            $expiryMin);
     }
 }

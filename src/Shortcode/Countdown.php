@@ -116,7 +116,7 @@ class Countdown
             $this->pendingDueText,
             $this->pendingExpiryText,
             $this->expiredText,
-            $this->getDueDate()
+            $this->getDueDate(),
             $this->getExpiryDate()
         );
     }
