@@ -3,7 +3,7 @@
 /**
  * Plugin Name: WP Countdown
  * Description: Wordpress countdown element
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: Jack Hansard, Adrian Lewis
  * License: GPL v2
  */

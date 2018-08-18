@@ -15,7 +15,7 @@ class RegisterScripts extends Action
             WP_COUNTDOWN_PLUGIN_ID . '-javascript',
             plugins_url() . '/' . WP_COUNTDOWN_FOLDER . '/dist/js/' . WP_COUNTDOWN_PLUGIN_ID . '.js',
             array(),
-            '1.0',
+            '1.1',
             true
         );
     }

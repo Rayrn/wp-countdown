@@ -32,15 +32,38 @@
   grid-column: 1;
   display: inline;
 }
-  
-.wp-countdown .active {
-    margin-left: 0.5rem;
-    font-weight: bolder;    
+
+.wp-countdown .countdown-time-days-label {
+  vertical-align: bottom;
+  margin-right: 0.2rem;
 }
-  
-.wp-countdown .inactive {
+
+.wp-countdown .countdown-time-hours-label {
+  vertical-align: bottom;
+  margin-right: 0.2rem;
+}
+
+.wp-countdown .countdown-time-minutes-label {
+  vertical-align: bottom;
+  margin-right: 0.2rem;
+}
+
+.wp-countdown .countdown-time-seconds-label {
+  vertical-align: bottom;
+}
+
+.wp-countdown.pending-due {
+  font-weight: bolder;
+}
+
+.wp-countdown.pending-expiry {
+  font-weight: bolder;
+}
+
+.wp-countdown.expired {
+  font-weight: normal;
 }
 
 .leading-zero.odometer .odometer-inside .odometer-digit:first-child {
-    display: none;
+  display: none;
 }

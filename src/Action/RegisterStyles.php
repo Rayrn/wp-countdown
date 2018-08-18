@@ -15,7 +15,7 @@ class RegisterStyles extends Action
             WP_COUNTDOWN_PLUGIN_ID . '-css',
             plugins_url() . '/' . WP_COUNTDOWN_FOLDER . '/dist/css/' . WP_COUNTDOWN_PLUGIN_ID . '.css',
             array(),
-            '1.0',
+            '1.1',
             false
         );
     }

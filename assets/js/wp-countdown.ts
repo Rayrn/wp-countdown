@@ -54,10 +54,6 @@ class Countdown {
     }
 
     private initContainer(element: HTMLDivElement): void {
-        // Extract countdown date from data attribute
-        const dueDate = this.getDateFromElement(element, 'dueDate');
-        const expiryDate = this.getDateFromElement(element, 'expiryDate');
-
         // const odometerElement = element.getElementsByClassName('wp-countdown-prefix-label')[0] as HTMLSpanElement;
         // const odometer = new Odometer({
         //     el: odometerElement,
@@ -66,25 +62,44 @@ class Countdown {
         //     format: '(,dd)'
         // });
         // odometer.render();
+            
+        if (this.updateCountdown(element)) {
+            // Update the count down every 1 second
+            const timer = setInterval(() => {
+                if (!this.updateCountdown(element)) {
+                    clearInterval(timer);
+                }
+            }, 1000);
+        }
+    }
 
-        // Update the count down every 1 second
-        const timer = setInterval(() => {
-            // Get todays date and time
-            const now = new Date().getTime();
+    private updateCountdown(element: HTMLDivElement): boolean {
+        // Extract countdown date from data attribute
+        const dueDate = this.getDateFromElement(element, 'dueDate');
+        const expiryDate = this.getDateFromElement(element, 'expiryDate');
 
-            if (dueDate !== null && dueDate > now) {
-                this.updatePrefixLabel(element, element.dataset.pendingDueText);
-                this.updateTimeFromDistance(element, dueDate - now);
-            }
-            else if (expiryDate !== null && expiryDate > now) {
-                this.updatePrefixLabel(element, element.dataset.pendingExpiryText);
-                this.updateTimeFromDistance(element, expiryDate - now);
-            }
-            else {
-                this.updatePrefixLabel(element, element.dataset.expiredText);
-                clearInterval(timer);
-            }
-        }, 1000);
+        // Get todays date and time
+        const now = new Date().getTime();
+
+        if (dueDate !== null && dueDate > now) {
+            element.classList.add('pending-due');
+            this.updatePrefixLabel(element, element.dataset.pendingDueText);
+            this.updateTimeFromDistance(element, dueDate - now);
+        }
+        else if (expiryDate !== null && expiryDate > now) {
+            element.classList.remove('pending-due');
+            element.classList.add('pending-expiry');
+            this.updatePrefixLabel(element, element.dataset.pendingExpiryText);
+            this.updateTimeFromDistance(element, expiryDate - now);
+        }
+        else {
+            element.classList.remove('pending-due', 'pending-expiry');
+            element.classList.add('expired');
+            this.updatePrefixLabel(element, element.dataset.expiredText);
+            return false;
+        }
+
+        return true;
     }
 
     private getDateFromElement(element: HTMLDivElement, dateAttributeName: string): number | null {
