@@ -1,3 +1,7 @@
+# IDEs
+.vscode
+
+# Build
 node_modules/
 dist/
 wp-countdown.zip
